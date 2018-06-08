@@ -1,0 +1,45 @@
+﻿@model AccountLoginViewModel
+
+<section>
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div class="col-12 col-md-7 card-body bg-secondary">
+                <div class="text-center mb-5">
+                    <h1 class="h2 mb-5 text-blue">Login info</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-9">
+                        <form asp-controller="Account" asp-action="Login" method="post">
+                            <div class="text-red" asp-validation-summary="ModelOnly"></div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="UserName">User name<sup>*</sup></label>
+                                    <input required class="form-control form-control-lg" id="exampleInputPassword1" placeholder="User name" asp-for="UserName" />
+                                    <span class="text-red" asp-validation-for="UserName"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="Password">Password<sup>*</sup></label>
+                                    <input required type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" asp-for="Password" />
+                                    <span class="text-red" asp-validation-for="Password"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group form-check">
+                                <input required type="checkbox" asp-for="RememberMe">
+                                <label asp-for="RememberMe">Remember me</label>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-block btn-success btn-lg">Login</button>
+                                    </div>
+                                </div>
+                        </form>
+                        </div>
+                    </div>
+                <span class="text-small text-muted">Not a member?&nbsp;&nbsp;<a class="text-primary" asp-action="Register" asp-controller="Account">Register now</a></span>
+                    </div>
+                </div>
+            </div>
+</section>
+

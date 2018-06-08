@@ -1,0 +1,58 @@
+﻿@model AccountUpdateProfileViewModel
+
+<section>
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div class="col-12 col-md-7 card-body bg-secondary">
+                <div class="text-center mb-5">
+                    <h1 class="h2 mb-5 text-blue">Profile info</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-9">
+                        <form asp-action="UpdateProfile" asp-controller="Account" method="post" enctype="multipart/form-data">
+                            <div class="text-red" asp-validation-summary="ModelOnly"></div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="FirstName">First name</label>
+                                    <input asp-for="FirstName" class="form-control form-control-lg" value="@Model.FirstName" />
+                                    <span class="text-red" asp-validation-for="FirstName"></span>
+                                </div>
+                                <div class="col">
+                                    <label asp-for="LastName">Last name</label>
+                                    <input asp-for="LastName" class="form-control form-control-lg" value="@Model.LastName" />
+                                    <span class="text-red" asp-validation-for="LastName"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="Email">Email</label>
+                                    <input type="email" asp-for="Email" class="form-control form-control-lg" value="@Model.Email" />
+                                    <span class="text-red" asp-validation-for="Email"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="Mobile">Mobile</label>
+                                    <input type="tel" asp-for="Mobile" class="form-control form-control-lg" value="@Model.Mobile" />
+                                    <span class="text-red" asp-validation-for="LastName"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="Photo">Photo</label>
+                                    <input type="file" name="file" value="@Model.Photo" /><br/>
+                                    <p class="text-red">@ViewBag.MyMessage</p>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-block btn-success btn-lg">Update</button>
+                       </div>
+                                </div>
+                                    </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+</section>

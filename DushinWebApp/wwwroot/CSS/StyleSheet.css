@@ -1,0 +1,18 @@
+﻿
+.white-text{
+    color:white;
+}
+.icon-magnifying-glass:before {
+    content: url('../staticImages/magnifying glass.png');
+}
+.carousel-img{
+    max-width:350px;
+    max-height:180px;
+}
+
+.carousel-tag :hover {
+    background-color: #f8f9fa;
+}
+
+
+

@@ -1,0 +1,45 @@
+﻿@model AccountRegisterProviderViewModel
+<section>
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div class="ol-12 col-md-7 card-body bg-secondary">
+                <div class="text-center mb-5">
+                    <h1 class="h2 mb-5 text-blue">Provider Registration info</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-9">
+                        <form asp-controller="Account" asp-action="RegisterProvider" method="post">
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="UserName">User name<sup>*</sup></label>
+                                    <input required asp-for="UserName" />
+                                    <span class="text-red" asp-validation-for="UserName"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="Password">Password<sup>*</sup></label>
+                                    <input required type="password" asp-for="Password" />
+                                    <span class="text-red" asp-validation-for="Password"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="ConfirmPassword">Confirm password<sup>*</sup></label>
+                                    <input required type="password" asp-for="ConfirmPassword" />
+                                    <span class="text-red" asp-validation-for="ConfirmPassword"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-block btn-success btn-lg">Register</button>
+                        </div>
+                                </div>
+                                    </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+</section>
+

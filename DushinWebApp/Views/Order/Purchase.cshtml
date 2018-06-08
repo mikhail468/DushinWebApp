@@ -1,0 +1,36 @@
+﻿@model  OrderPurchaseViewModel
+
+<div>
+    <h2>Order details</h2>
+</div>
+<form asp-controller="Order" asp-action="Purchase" method="Post">
+
+    <div asp-validation-summary="ModelOnly">
+
+    </div>
+
+    <div>
+        <h5 style="color:red">  @ViewBag.MyMessage </h5>
+    </div>
+
+    <div>
+       
+        <input asp-for="Name" value="@Model.Name" readonly/>
+    </div>
+
+    <div>
+       
+        <input asp-for="Name" value="@Model.Date" readonly/>
+    </div>
+
+    <div>
+        
+        <input asp-for="Price" value="$@Model.Price" readonly/>
+    </div>
+
+    <div>
+        <input type="submit" value="Order" />
+    </div>
+
+</form>
+

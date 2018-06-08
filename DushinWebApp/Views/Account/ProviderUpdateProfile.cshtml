@@ -1,0 +1,47 @@
+﻿@model AccountProviderUpdateProfileViewModel
+
+<section>
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div class="col-12 col-md-7 card-body bg-secondary">
+                <div class="text-center mb-5">
+                    <h1 class="h2 mb-5 text-blue">Profile info</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-9">
+                        <form asp-action="ProviderUpdateProfile" asp-controller="Account" method="post">
+                            <div class="text-red" asp-validation-summary="ModelOnly"></div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="CompanyName">Company name</label>
+                                    <input asp-for="CompanyName" value="@Model.CompanyName" class="form-control form-control-lg" />
+                                    <span class="text-red" asp-validation-for="CompanyName"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="WebSite">Web site</label>
+                                    <input asp-for="WebSite" value="@Model.WebSite" class="form-control form-control-lg" />
+                                    <span class="text-red" asp-validation-for="WebSite"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="Address">Address</label>
+                                    <input asp-for="Address" value="@Model.Address" class="form-control form-control-lg" />
+                                    <span class="text-red" asp-validation-for="Address"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <button type="submit" class="bbtn btn-block btn-success btn-lg">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+</section>
+

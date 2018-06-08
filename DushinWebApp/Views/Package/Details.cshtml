@@ -1,0 +1,78 @@
+﻿@model PackageDetailsViewModel
+
+<section class="bg-white fullwidth-split">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-12 col-sm-5 col-lg-6 order-sm-2 fullwidth-split-image d-sm-flex align-items-center">
+                <img alt="Image" src="~/uploads/@Model.Picture" class="bg-image">
+            </div>
+            <!--end of col-->
+            <div class="col-12 col-sm-7 col-lg-6 order-sm-1 fullwidth-split-text">
+                <div class="col-12 col-sm-8">
+                    <h3 class="display-4">@Model.Name</h3>
+                    <span class="lead">
+                        Location: @Model.LocationName
+                    </span>
+                    <span class="lead">
+                        @Model.Description
+                    </span>
+                    <h4 class="display-4">$@Model.Price</h4>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+                    {
+                <a asp-action="Purchase" asp-controller="Order" asp-route-name="@Model.Name" class="btn btn-outline-primary btn-lg">Buy</a>
+
+}
+else
+{
+                <a asp-action="Login" asp-controller="Account" class="btn btn-outline-primary btn-lg">Buy</a>
+
+}
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Provider") && Model.UserName==User.Identity.Name)
+    {
+                <a asp-action="Update" asp-controller="Package" asp-route-name="@Model.Name" class="btn btn-outline-primary btn-lg">Update</a>
+}
+                </div>
+            </div>
+            <!--end of col-->
+        </div>
+        <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.LocationName">Back to location</a>
+    </div>
+</section>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <p class="lead">Comments:</p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Feedbacks)
+        {
+            <div class="col-12 border-bottom">
+                <span><b>@item.UserName </b></span><p>@item.ComntDate</p>
+                <p>@item.Comment</p>
+            </div>
+    }
+        </div>
+
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+    {
+        <div class="row">
+            <div class="col">
+                <p class="lead">
+                    Leave your comment:
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <form asp-action="Details" asp-controller="Package" method="post" class="form-inline">
+                    <input asp-for="@Model.NewFeedback" class="form-control mr-sm-2" type="text" />
+                    <input asp-for="@Model.Name" type="hidden" readonly />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Post</button>
+                </form>
+            </div>
+        </div>}
+    </div>
+</section>
+

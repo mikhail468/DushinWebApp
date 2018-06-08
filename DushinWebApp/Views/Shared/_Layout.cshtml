@@ -1,0 +1,188 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    
+    <link href="~/lib/bootstrap/scss/bootstrap.css" rel="stylesheet" />
+    <link href="~/CSS/theme.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/scss/background-images.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/scss/utilities.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/scss/spacing.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/scss/footer.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/scss/color.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/scss/forms.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/scss/card.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/scss/type.css" rel="stylesheet" />
+    <link href="~/CSS/StyleSheet.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/lib/popper.js/dist/popper.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container-fluid p-0 text-white">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <a class="navbar-brand" asp-action="Index" asp-controller="Home"><img class="img-fluid" src="~/staticImages/logoHead.png" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white bold" asp-action="Home" asp-controller="Location">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white bold" asp-action="AllPackages" asp-controller="Package">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white bold" asp-action="About" asp-controller="Home">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white bold" asp-action="Contact" asp-controller="Home">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                     {
+                @if (User.IsInRole("Customer"))
+                    {
+                        string photo = User.Identity.Name + ".jpg";
+                <li class="nav-item"><img class="avatar avatar-xs" src="~/profilePhotos/@photo"/><span>&nbsp;&nbsp;</span></li>
+                 }
+                <li class="nav-item text-black-50">@User.Identity.Name&nbsp;&nbsp;</li>
+                <li class="nav-item">
+                    @if (User.IsInRole("Customer"))
+                    {
+                        <a class="white-text" asp-action="Orders" asp-controller="Account">Purchases</a><span>&nbsp;</span>
+                    }
+                    @if (User.IsInRole("Provider"))
+                    {
+                        <a class="white-text" asp-action="ProviderUpdateProfile" asp-controller="Account">Provider profile</a><span>&nbsp;</span>
+                        <a class="white-text" asp-action="ProviderPackages" asp-controller="Package">Provider packages</a><span>&nbsp;</span>
+                    }
+                    @if (User.IsInRole("Customer"))
+                    {
+                        <a class="white-text" asp-action="UpdateProfile" asp-controller="Account">Profile</a><span>&nbsp;</span>
+                    }
+
+                    <a class="white-text" asp-action="Logout" asp-controller="Account">Logout</a>
+                </li>
+
+}
+else
+{
+                <li class="nav-item">
+                    <a class="white-text" asp-action="RegisterProvider" asp-controller="Account">Register as provider</a>
+                    <a class="white-text" asp-action="Register" asp-controller="Account">Register</a>
+                    <a class="white-text" asp-action="Login" asp-controller="Account">Login</a>
+                </li>
+}
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="main-container">
+        @RenderBody()
+        <footer class="bg-gray text-light footer-long">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                            <img alt="Image" src="~/staticImages/logoHead.png" class="mb-4"></a>
+                            <p class="text-muted">
+                                © 2018 Grande Travel Limited.
+                                <br>Grande Travel Services(Australia) Pty Ltd
+                                <br>traiding as Grande Travel online
+                            </p>
+                    </div>
+                    <!--end of col-->
+                    <div class="col-12 col-md-9">
+                        <span class="h5">A robust suite of styled components for Bootstrap 4</span>
+                        <div class="row no-gutters">
+                            <div class="col-6">
+                                <h6 class="text-white bold">Navigate</h6>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="nav-link text-white bold" asp-action="Home" asp-controller="Location">Destinations</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white bold" asp-action="AllPackages" asp-controller="Package">Packages</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white bold" asp-action="About" asp-controller="Home">About</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white bold" asp-action="Contact" asp-controller="Home">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--end of col-->
+                            <div class="col-6">
+                                <h6 class="text-white bold">Policy</h6>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="nav-link text-white bold" asp-action="PrivacyPolicy" asp-controller="Home">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white bold" asp-action="TermsOfUse" asp-controller="Home">Terms of Use</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            @*<div class="col-6 col-lg-3">
+                                <h6>Community</h6>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#">Forum</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Knowledgebase</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Hire an expert</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">FAQ</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <h6>Company</h6>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#">About company</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">History</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Team</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Investment</a>
+                                    </li>
+                                </ul>
+                            </div>*@
+                            <!--end of col-->
+                        </div>
+                        <!--end of row-->
+                    </div>
+                    <!--end of col-->
+                </div>
+                <!--end of row-->
+            </div>
+            <!--end of container-->
+        </footer>
+    </div>
+    
+    
+    <script src="~/Script/script.js"></script>
+        <script src="~/Script/tether.js"></script>
+</body>
+</html>

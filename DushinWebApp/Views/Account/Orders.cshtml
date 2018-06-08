@@ -1,0 +1,27 @@
+﻿@model AccountOrdersViewModel
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col card-body">
+                <h1 class="display-4 text-indigo">Purchase history</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    @foreach (var item in Model.Orders)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>$@item.Price</td>
+                            <td>@item.Date</td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+        </div>
+    </section>
+

@@ -1,0 +1,103 @@
+﻿@model LocationDetailsViewModel
+<link href="~/jquery-ui.css" rel="stylesheet" />
+<script src="~/jquery-ui.js"></script>
+<script src="~/lib/popper.js/dist/umd/popper.js"></script>
+<section class="bg-white fullwidth-split">
+    <div class="container-fluid">
+        @if (Model.Name != null)
+        {
+            <div class="row no-gutters">
+                <div class="col-12 col-sm-5 col-lg-6 order-sm-2 fullwidth-split-image d-sm-flex align-items-center">
+                    <img alt="Image" src="~/uploads/@Model.Picture" class="bg-image">
+                </div>
+                <!--end of col-->
+                <div class="col-12 col-sm-7 col-lg-6 order-sm-1 fullwidth-split-text">
+                    <div class="col-12 col-sm-8">
+                        <h3 class="display-4">@Model.Name</h3>
+                        <span class="lead">
+                            @Model.Details
+                        </span>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Provider"))
+                        {
+                            <a asp-action="Create" asp-controller="Package" class="btn btn-outline-primary btn-lg">Add package</a>
+                        }
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Update" asp-controller="Location" asp-route-name="@Model.Name" class="btn btn-outline-primary btn-lg">Update location</a>
+                        }
+                    </div>
+                </div>
+                <!--end of col-->
+            </div>
+        }
+    </div>
+</section>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3">
+                <p class="lead">Packages available: @Model.TotalPackages</p>
+            </div>
+            <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                <form asp-action="Details" asp-controller="Location" method="post" class="form-inline">
+                    <input asp-for="Search" class="form-control mr-sm-2" id="searchInput" placeholder="Search destination" data-autocomplete-url="@Url.Action("GetAllLocations")" />
+                         <script type="text/javascript">
+                           $(document).ready(function () {
+                               $('#searchInput').autocomplete({
+                                    source: '@Url.Action("GetAllLocations","Home")'
+                                });
+                           })
+                        </script>
+                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search" />   
+                </form>
+            </div>
+            <div class="col-12 col-md-3 col-lg-2">
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filter
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" asp-action="Details" asp-controller="Location" asp-route-name="@Model.Name" asp-route-sorting="hight">Highest price</a>
+                        <a class="dropdown-item" asp-action="Details" asp-controller="Location" asp-route-name="@Model.Name" asp-route-sorting="low">Lowest price</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            @for (int i = 0; i < Model.Packages.Count; i++)
+            {<div class="col-md-3">
+                    <div class="card">
+                        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages.ElementAt(i).Name">
+                            <img class="d-block w-100" src="~/uploads/@Model.Packages.ElementAt(i).Picture" alt="slide 1">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.Packages.ElementAt(i).Name</h5>
+                            <p class="card-text">$@Model.Packages.ElementAt(i).Price</p>
+                            <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages.ElementAt(i).Name" class="btn btn-primary">More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Provider"))
+        {
+            <div class="row">
+                <p class="lead">Unactive packages: @Model.TotalUnactivePac</p>
+            </div>
+            <div class="row">
+                @foreach (var item in Model.UnactivePackages)
+                {
+                    <span><a asp-action="Details" asp-controller="Package" asp-route-name="@item.Name">&nbsp;@item.Name&nbsp;</a></span><span>|</span>
+
+                }
+            </div>
+        }
+
+
+    </div>
+    <!--end of container-->
+</section>
+

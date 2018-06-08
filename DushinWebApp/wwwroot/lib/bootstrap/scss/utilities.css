@@ -1,0 +1,140 @@
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-10 {
+  opacity: 0.1;
+}
+
+.opacity-20 {
+  opacity: 0.2;
+}
+
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-40 {
+  opacity: 0.4;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+[class*=height-] {
+  display: flex;
+}
+[class*=height-] > .container {
+  align-self: center;
+}
+
+.height-10 {
+  min-height: 10vh;
+}
+
+.height-20 {
+  min-height: 20vh;
+}
+
+.height-30 {
+  min-height: 30vh;
+}
+
+.height-40 {
+  min-height: 40vh;
+}
+
+.height-50 {
+  min-height: 50vh;
+}
+
+.height-60 {
+  min-height: 60vh;
+}
+
+.height-70 {
+  min-height: 70vh;
+}
+
+.height-80 {
+  min-height: 80vh;
+}
+
+.height-90 {
+  min-height: 90vh;
+}
+
+.height-100 {
+  min-height: 100vh;
+}
+
+.height-0 {
+  height: 0;
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.position-relative {
+  position: relative;
+  z-index: 1;
+}
+
+.position-static {
+  position: static;
+}
+
+.position-fixed {
+  position: fixed !important;
+}
+.position-fixed.sticky {
+  top: 0;
+}
+.position-fixed.sticky-bottom {
+  position: absolute !important;
+  bottom: 0;
+  top: auto !important;
+}
+
+.blend-mode-overlay {
+  mix-blend-mode: overlay;
+}
+
+.box-shadow {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+img[src*=png].box-shadow, img[src*=svg].box-shadow {
+  filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+  box-shadow: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.overflow-auto {
+  overflow: auto;
+}

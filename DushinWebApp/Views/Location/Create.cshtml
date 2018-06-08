@@ -1,0 +1,70 @@
+﻿@model LocationCreateViewModel
+<section>
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div class="col-12 col-md-7 card-body bg-secondary">
+                <div class="text-center mb-5">
+                    <h1 class="h2 mb-6 text-green">Create location</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-9">
+                        <form asp-controller="Location" asp-action="Create" method="Post" enctype="multipart/form-data">
+
+                            <div class="text-red" asp-validation-summary="ModelOnly"></div>
+
+                            <div>
+                                <h5 class="text-red">  @ViewBag.MyMessage </h5>
+                            </div>
+
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="Name">Name<sup>*</sup></label>
+                                    <input required asp-for="Name" class="form-control form-control-lg" />
+                                    <span class="text-red" asp-validation-for="Name"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="State">State<sup>*</sup></label>
+                                    <input required asp-for="State" class="form-control form-control-lg" />
+                                    <span class="text-red" asp-validation-for="State"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="Details">Details<sup>*</sup></label>
+                                    <input asp-for="Details" class="form-control form-control-lg" />
+                                    <span class="text-red" asp-validation-for="Details"></span>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <label asp-for="Picture">Picture<sup>*</sup></label>
+                                    <input type="file" name="file" class="form-control form-control-lg" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="custom-control custom-checkbox align-items-center">
+                                    <label asp-for="Active">Active</label>
+                                    <input type="checkbox" asp-for="Active" value="true"/>
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-block btn-success btn-lg">Create</button>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </section>
+
+@*<div>
+    <div class="custom-control custom-checkbox align-items-center">
+        <input type="checkbox" class="custom-control-input" value="box-1" name="box-1" checked="" id="check-remember">
+        <label class="custom-control-label text-small" for="check-remember">Remember me next time</label>
+    </div>
+</div>*@

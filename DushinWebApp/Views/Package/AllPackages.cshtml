@@ -1,0 +1,231 @@
+﻿@model PackageHomeViewModel
+<section>
+    <div class="container">
+        <div id="carouselExampleControls" class="carousel slide bg-dark" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item card m-0 active">
+                    <div class="row">
+                        @if (Model.PackagesCarousel[0] != null)
+                        {
+                            
+                        <div class="col-md-4 p-3">
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <h5 class="card-title" style="font-size:1.5em">@Model.PackagesCarousel[0].Name</h5>
+                                    <p class="text-body" style="font-size:1.5em">@Model.PackagesCarousel[0].Description</p>
+                                    <h5 class="card-title" style="font-size:1.5em">$@Model.PackagesCarousel[0].Price</h5>
+                                    <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackagesCarousel[0].Name" class="btn btn-primary">More</a>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-8">
+                                    <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackagesCarousel[0].Name">
+                                        <img class="img-fluid" src="~/uploads/@Model.PackagesCarousel[0].Picture" style="max-width:750px;max-height:450px" alt="slide 1">
+                                        </a>
+                                </div>
+                                }
+                                else
+                                {
+                                <div class="col-md-4 p-3">
+                                    <div class="row justify-content-center">
+                                        <div class="col-10">
+                                            <h5 class="card-title" style="font-size:1.5em">Title</h5>
+                                            <p class="text-body" style="font-size:1.5em">Description</p>
+                                            <h5 class="card-title" style="font-size:1.5em">$0</h5>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <img src="http://placehold.it/784x484" class="img-fluid w-100" alt="slide 1">
+                                        </div>
+
+                                        }
+                                    </div>
+                                </div>
+                <div class="carousel-item card m-0">
+                    <div class="row">
+                        @if (Model.PackagesCarousel[1] != null)
+                        {
+
+                            <div class="col-md-4 p-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-10">
+                                        <h5 class="card-title" style="font-size:1.5em">@Model.PackagesCarousel[1].Name</h5>
+                                        <p class="text-body" style="font-size:1.5em">@Model.PackagesCarousel[0].Description</p>
+                                        <h5 class="card-title" style="font-size:1.5em">$@Model.PackagesCarousel[1].Price</h5>
+                                        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackagesCarousel[1].Name" class="btn btn-primary">More</a>
+                                    </div>
+                                    </div>
+                                </div>
+                                    <div class="col-md-8">
+                                        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackagesCarousel[1].Name">
+                                            <img src="~/uploads/@Model.PackagesCarousel[1].Picture" style="max-width:750px;max-height:450px" alt="slide 2">
+                                        </a>
+                                    </div>
+                                    }
+                                    else
+                                    {
+                                    <div class="col-md-4 p-3">
+                                        <div class="row justify-content-center">
+                                            <div class="col-10">
+                                                <h5 class="card-title" style="font-size:1.5em">Title</h5>
+                                                <p class="text-body" style="font-size:1.5em">Description</p>
+                                                <h5 class="card-title" style="font-size:1.5em">$0</h5>
+                                            </div>
+                                            </div>
+                                        </div>
+                                            <div class="col-md-8">
+                                                <img src="http://placehold.it/784x484" class="img-fluid w-100" alt="slide 2">
+                                            </div>
+
+                                            }
+                                        </div>
+                                    </div>
+                <div class="carousel-item card m-0">
+                    <div class="row">
+                        @if (Model.PackagesCarousel[2] != null)
+                        {
+
+                        <div class="col-md-4 p-3">
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <h5 class="card-title" style="font-size:1.5em">@Model.PackagesCarousel[2].Name</h5>
+                                    <p class="text-body" style="font-size:1.5em">@Model.PackagesCarousel[2].Description</p>
+                                    <h5 class="card-title" style="font-size:1.5em">$@Model.PackagesCarousel[2].Price</h5>
+                                    <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackagesCarousel[2].Name" class="btn btn-primary">More</a>
+                                </div>
+                                </div>
+                            </div>
+                                <div class="col-md-8">
+                                    <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackagesCarousel[2].Name">
+                                        <img src="~/uploads/@Model.PackagesCarousel[2].Picture" style="max-width:750px;max-height:450px" alt="slide 3">
+                                    </a>
+                                </div>
+                                }
+                                else
+                                {
+                                <div class="col-md-4 p-3">
+                                    <div class="row justify-content-center">
+                                        <div class="col-10">
+                                            <h5 class="card-title" style="font-size:1.5em">Title</h5>
+                                            <p class="text-body" style="font-size:1.5em">Description</p>
+                                            <h5 class="card-title" style="font-size:1.5em">$0</h5>
+                                        </div>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-8">
+                                            <img src="http://placehold.it/784x484" class="img-fluid w-100" alt="slide 3">
+                                        </div>
+
+                                        }
+                                    </div>
+                                </div>
+                </div>
+            <a class="carousel-control-prev" style="max-width:50px" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" style="max-width:50px" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    </section>
+<section class="border-top-0">
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div class="col col-12 col-md-9 col-lg-8">
+                <h2 class="display-4">NSW packages</h2>
+                <p class="lead">Find the best NSW packages with Grande Travel. Search a fantastic range of packages and book your best escape.</p>
+            </div>
+        </div>
+        <div class="row text-center justify-content-center">
+            @for(int i = 0; i < Model.PackageNSW.Length; i++) {
+            <div class="card border-0 col-md-3 bg-light">
+                @if (Model.PackageNSW[i] != null)
+    {
+            <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackageNSW[i].Name" class="card">
+                <img class="d-block w-100 p-0" src="~/uploads/@Model.PackageNSW[i].Picture">
+                <div class="card-body">
+                    <p class="card-title">@Model.PackageNSW[i].Name</p>
+                    <p class="card-text">$@Model.PackageNSW[i].Price</p>
+                </div>
+            </a>
+}
+else
+{
+            <img class="d-block img-fluid p-0" src="http://placehold.it/350x180?text=2">
+
+            <div class="card-body">
+                <p class="card-title">Title</p>
+                <p class="card-text">$0</p>
+            </div>}
+            </div>
+                }
+            
+            @*<div class="card border-0 col-md-3">
+                <a class="card" href="#">
+                    <img class="d-block w-100" src="//placehold.it/286x180?text=4" alt="slide 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="card border-0 col-md-3">
+                <a class="card" href="#">
+                    <img class="d-block w-100" src="//placehold.it/286x180?text=4" alt="slide 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                </a>
+            </div>*@
+        </div>
+        <div class="row text-center justify-content-center">
+            <div class="col col-12 col-md-9 col-lg-8">
+                <h2 class="display-4">Interstate packages</h2>
+                <p class="lead">Find the best interstate packages across Australia with Grande Travel. Search a fantastic range of interstate packages in NT, QLD, WA and more. Don't hesitate, book today.</p>
+            </div>
+        </div>
+        <div class="row text-center justify-content-center">
+            @for (int i = 0; i < Model.PackageInt.Length; i++)
+    {<div class="card border-0 col-md-3 bg-light">
+    @if (Model.PackageInt[i] != null)
+    {
+        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackageInt[i].Name" class="card">
+            <img class="d-block w-100 p-0" src="~/uploads/@Model.PackageInt[i].Picture">
+            <div class="card-body">
+                <p class="card-title">@Model.PackageInt[i].Name</p>
+                <p class="card-text">$@Model.PackageInt[i].Price</p>
+            </div>
+        </a>
+    }
+    else
+    {
+        <img class="d-block img-fluid p-0" src="http://placehold.it/350x180?text=2">
+
+        <div class="card-body">
+            <p class="card-title">Title</p>
+            <p class="card-text">$0</p>
+        </div>}
+</div>
+}
+            @*<div class="card border-0 col-md-3">
+            <a class="card" href="#">
+                <img class="d-block w-100" src="//placehold.it/286x180?text=4" alt="slide 1">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </a>
+        </div>
+        <div class="card border-0 col-md-3">
+            <a class="card" href="#">
+                <img class="d-block w-100" src="//placehold.it/286x180?text=4" alt="slide 1">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </a>
+        </div>*@
+        </div>
+    </div>
+</section>

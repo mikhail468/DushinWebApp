@@ -1,0 +1,118 @@
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4, .bg-dark h5, .bg-dark h6, .bg-dark .h1, .bg-dark .h2, .bg-dark .h3, .bg-dark .h4, .bg-dark .h5, .bg-dark .h6, .bg-dark .display-1, .bg-dark .display-2, .bg-dark .display-3, .bg-dark .display-4, .text-light h1, .text-light h2, .text-light h3, .text-light h4, .text-light h5, .text-light h6, .text-light .h1, .text-light .h2, .text-light .h3, .text-light .h4, .text-light .h5, .text-light .h6, .text-light .display-1, .text-light .display-2, .text-light .display-3, .text-light .display-4, .bg-gray h1, .bg-gray h2, .bg-gray h3, .bg-gray h4, .bg-gray h5, .bg-gray h6, .bg-gray .h1, .bg-gray .h2, .bg-gray .h3, .bg-gray .h4, .bg-gray .h5, .bg-gray .h6, .bg-gray .display-1, .bg-gray .display-2, .bg-gray .display-3, .bg-gray .display-4, .text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6, .text-white .h1, .text-white .h2, .text-white .h3, .text-white .h4, .text-white .h5, .text-white .h6, .text-white .display-1, .text-white .display-2, .text-white .display-3, .text-white .display-4 {
+  color: #fff;
+}
+
+.bg-dark, .bg-gray {
+  color: #ced4da;
+}
+.bg-dark .title-decorative, .bg-gray .title-decorative {
+  color: #495057;
+}
+.bg-dark .text-muted, .bg-gray .text-muted {
+  color: #495057 !important;
+}
+
+.bg-gray {
+  background: #343a40;
+}
+.bg-gray .text-muted {
+  color: #6c757d !important;
+}
+
+.bg-secondary {
+  background: #e9ecef !important;
+}
+
+.text-light .text-muted {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.text-light .title-decorative {
+  color: #fff;
+}
+.text-light a {
+  color: #adb5bd;
+  transition: color 0.2s ease;
+}
+.text-light a:hover {
+  color: #fff;
+}
+
+a.text-white {
+  font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+a.text-white:hover {
+  opacity: 0.75;
+}
+
+.text-body {
+  color: #212529 !important;
+}
+
+.bg-dark .form-group label {
+  color: #fff;
+}
+.bg-dark .form-group small {
+  color: #6c757d;
+}
+
+.text-white .form-group small {
+  color: #fff;
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #6f42c1 0%, #007bff 100%);
+}
+
+.text-blue {
+  color: #007bff !important;
+}
+
+.text-indigo {
+  color: #6610f2 !important;
+}
+
+.text-purple {
+  color: #6f42c1 !important;
+}
+
+.text-pink {
+  color: #e83e8c !important;
+}
+
+.text-red {
+  color: #dc3545 !important;
+}
+
+.text-orange {
+  color: #fd7e14 !important;
+}
+
+.text-yellow {
+  color: #ffc107 !important;
+}
+
+.text-green {
+  color: #28a745 !important;
+}
+
+.text-teal {
+  color: #20c997 !important;
+}
+
+.text-cyan {
+  color: #17a2b8 !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-gray {
+  color: #6c757d !important;
+}
+
+.text-gray-dark {
+  color: #343a40 !important;
+}

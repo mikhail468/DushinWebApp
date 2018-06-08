@@ -1,0 +1,39 @@
+.footer-long {
+  font-size: 0.875rem;
+  padding: 3rem 0 5rem 0;
+}
+.footer-long .h5 {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 991.98px) {
+  .footer-long {
+    padding: 2rem 0;
+  }
+}
+@media (max-width: 575.98px) {
+  .footer-long .h5 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+.footer-short {
+  padding-bottom: 1rem;
+}
+.footer-short hr {
+  margin: 0;
+}
+.footer-short nav {
+  padding-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.footer-short small {
+  color: #adb5bd;
+}
+.footer-short .list-inline-item a {
+  color: #adb5bd;
+  transition: color 0.2s ease;
+}
+.footer-short .list-inline-item a:hover {
+  color: #212529;
+}

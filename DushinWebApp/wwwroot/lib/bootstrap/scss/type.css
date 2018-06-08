@@ -1,0 +1,158 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (max-width: 991.98px) {
+  html {
+    font-size: 0.875rem;
+  }
+}
+h1, .h1 {
+  font-weight: 300;
+  line-height: 3rem;
+}
+
+h2, .h2 {
+  line-height: 2.5rem;
+}
+
+h3, .h3 {
+  line-height: 2.25rem;
+}
+
+h4, .h4 {
+  line-height: 1.875rem;
+  margin-bottom: 2rem;
+}
+
+h5, .h5 {
+  line-height: 1.875rem;
+  margin-bottom: 0.5rem;
+}
+
+h6, .h6 {
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h1:last-child, .h1:last-child, h2:last-child, .h2:last-child, h3:last-child, .h3:last-child, h4:last-child, .h4:last-child, h5:last-child, .h5:last-child, h6:last-child, .h6:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 575.98px) {
+  h1, .h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  h2, .h2 {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+}
+.h1, .h2, .h3, .h4, .h5, .h6, .display-1, .display-2, .display-3, .display-4 {
+  display: block;
+}
+
+.display-1, .display-2, .display-3, .display-4 {
+  margin-bottom: 1rem;
+  color: inherit;
+}
+
+.display-1 {
+  line-height: 6rem;
+}
+
+.display-2 {
+  line-height: 6rem;
+}
+
+.display-3 {
+  line-height: 4.5rem;
+}
+
+.display-4 {
+  line-height: 4rem;
+}
+
+@media (max-width: 575.98px) {
+  .display-1 {
+    font-size: 5.5rem;
+  }
+
+  .display-2 {
+    font-size: 4.5rem;
+    line-height: 4.5rem;
+  }
+
+  .display-3 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+hr {
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 767.98px) {
+  hr {
+    margin: 1rem 0;
+  }
+}
+hr.short {
+  width: 2rem;
+  margin: 1rem 0;
+}
+
+.blockquote {
+  text-align: center;
+}
+.blockquote .h4 {
+  line-height: 2.25rem;
+}
+
+abbr[title] {
+  -webkit-text-decoration: underline dotted;
+}
+
+/*p:last-child {
+  margin-bottom: 0;
+}*/
+
+.text-small, h6 + p, h6 + p + a, h6 + span, .h6 + span {
+  font-size: 0.875rem;
+}
+
+.lead {
+  margin-bottom: 1rem;
+  line-height: 1.875rem;
+  display: block;
+  font-weight: 400;
+}
+
+@media (max-width: 575.98px) {
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+small {
+  line-height: 1.5;
+  display: inline-block;
+}
+
+h6 + small, .h6 + small, h5 + small, .h5 + small {
+  position: relative;
+  bottom: 0.25rem;
+}
+
+dt {
+  font-weight: 700;
+}
