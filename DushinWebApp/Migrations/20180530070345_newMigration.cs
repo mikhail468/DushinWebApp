@@ -8,15 +8,15 @@ namespace DushinWebApp.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "LocName",
-                table: "PackageTbl",
-                nullable: true);
+            //migrationBuilder.AddColumn<string>(
+            //    name: "LocName",
+            //    table: "PackageTbl",
+            //    nullable: true);
 
-            migrationBuilder.AddColumn<string>(
-                name: "LocState",
-                table: "PackageTbl",
-                nullable: true);
+            //migrationBuilder.AddColumn<string>(
+            //    name: "LocState",
+            //    table: "PackageTbl",
+            //    nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "UserId",
@@ -26,13 +26,13 @@ namespace DushinWebApp.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "LocName",
-                table: "PackageTbl");
+            //migrationBuilder.DropColumn(
+            //    name: "LocName",
+            //    table: "PackageTbl");
 
-            migrationBuilder.DropColumn(
-                name: "LocState",
-                table: "PackageTbl");
+            //migrationBuilder.DropColumn(
+            //    name: "LocState",
+            //    table: "PackageTbl");
 
             migrationBuilder.DropColumn(
                 name: "UserId",

@@ -23,7 +23,7 @@ namespace DushinWebApp.Controllers
         public IActionResult Index()
         {
             IEnumerable<Location> locationList = _locationService.GetAll();
-            IEnumerable<Package> packageList = _packageService.GetAll();
+            IEnumerable<Package> packageList = _packageService.GetAll().OrderByDescending(p=>p.TimesOrdered);
             HomeIndexViewModel vm = new HomeIndexViewModel
             {
                 Locations = new Location[6],

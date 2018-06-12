@@ -136,7 +136,8 @@ namespace DushinWebApp.Controllers
                         Description = vm.Description,
                         Active=vm.Active,
                         LocState = loc.State,
-                        UserId = user.Id
+                        UserId = user.Id,
+                        TimesOrdered = 0
 
                     };
                     //upload the picture to the file system

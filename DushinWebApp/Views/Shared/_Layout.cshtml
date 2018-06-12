@@ -30,7 +30,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto" style="font-size:1.25em">
                     <li class="nav-item active">
                         <a class="nav-link text-white bold" asp-action="Home" asp-controller="Location">Destinations</a>
                     </li>
@@ -60,7 +60,6 @@
                     }
                     @if (User.IsInRole("Provider"))
                     {
-                        <a class="white-text" asp-action="ProviderUpdateProfile" asp-controller="Account">Provider profile</a><span>&nbsp;</span>
                         <a class="white-text" asp-action="ProviderPackages" asp-controller="Package">Provider packages</a><span>&nbsp;</span>
                     }
                     @if (User.IsInRole("Customer"))
@@ -75,7 +74,6 @@
 else
 {
                 <li class="nav-item">
-                    <a class="white-text" asp-action="RegisterProvider" asp-controller="Account">Register as provider</a>
                     <a class="white-text" asp-action="Register" asp-controller="Account">Register</a>
                     <a class="white-text" asp-action="Login" asp-controller="Account">Login</a>
                 </li>
@@ -100,10 +98,10 @@ else
                             </p>
                     </div>
                     <!--end of col-->
-                    <div class="col-12 col-md-9">
-                        <span class="h5">A robust suite of styled components for Bootstrap 4</span>
+                    <div class="col-12 col-md-9 text-center">
+                        <span class="h5">Make it the best experience with Grande Travel</span>
                         <div class="row no-gutters">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <h6 class="text-white bold">Navigate</h6>
                                 <ul class="list-unstyled">
                                     <li>
@@ -121,7 +119,7 @@ else
                                 </ul>
                             </div>
                             <!--end of col-->
-                            <div class="col-6">
+                            <div class="col-4">
                                 <h6 class="text-white bold">Policy</h6>
                                 <ul class="list-unstyled">
                                     <li>
@@ -132,43 +130,45 @@ else
                                     </li>
                                 </ul>
                             </div>
-                            @*<div class="col-6 col-lg-3">
-                                <h6>Community</h6>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="#">Forum</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Knowledgebase</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Hire an expert</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">FAQ</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <h6>Company</h6>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="#">About company</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">History</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Team</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Investment</a>
-                                    </li>
-                                </ul>
-                            </div>*@
+                            <div class="col-4 navbar-nav">
+                                                                <h6>Connect with us</h6>
+                                                                <ul class="list-unstyled">
+                                                                    <li class="nav-item">
+                                                                        <a class="mr-2 my-2" href="">
+                                <img src="~/staticImages/facebook-icon.png" />
+                                                                        </a>
+                                                                   
+                                                                        <a class="mr-2 my-2" href="">
+                        <img src="~/staticImages/instagram-icon.png" />
+                                                                        </a>
+                                                                   
+                                                                        <a class="mr-2 my-2" href="">
+                <img src="~/staticImages/twitter-icon.png" />
+                                                                        </a>
+                                                                   
+                                                                        <a class="mr-2 my-2" href="">
+        <img src="~/staticImages/youtube-icon.png" />
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            @*<div class="col-6 col-lg-3">
+                                                                <h6>Company</h6>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        <a href="#">About company</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">History</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">Team</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">Investment</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>*@
                             <!--end of col-->
                         </div>
                         <!--end of row-->

@@ -19,7 +19,8 @@ namespace DushinWebApp.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=DushinTravelDb; Trusted_Connection=True");
+            //options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=DushinTravelDb; Trusted_Connection=True");
+            options.UseSqlServer(@"Server=tcp:dushinwebapp.database.windows.net,1433;Initial Catalog=TravelDb;Persist Security Info=False;User ID=dushinadmin;Password=cjt20uCj;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
     }
 }

@@ -60,8 +60,7 @@ namespace DushinWebApp
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
 
-            //call seed
-            //SeedHelper.Seed(app.ApplicationServices).Wait();
+            
         }
     }
 }

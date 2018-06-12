@@ -19,7 +19,6 @@ namespace DushinWebApp.ViewModels
         [MaxLength(60, ErrorMessage = "Name length less than 60")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Please enter price")]
-        [MaxLength(10, ErrorMessage = "Name length less than 10")]
         public double Price { get; set; }
         [MaxLength(100, ErrorMessage = "Description length is greater than 100")]
         public string Description { get; set; }

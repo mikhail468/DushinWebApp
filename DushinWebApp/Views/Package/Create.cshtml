@@ -13,7 +13,7 @@
                             <div asp-validation-summary="ModelOnly"></div>
 
                             <div>
-                                <h5  class="text-red">@ViewBag.MyMessage</h5>
+                                <h5 class="text-red">@ViewBag.MyMessage</h5>
                             </div>
 
                             <div class="form-row form-group">
@@ -32,6 +32,12 @@
                             </div>
                             <div class="form-row form-group">
                                 <div class="col">
+                                    <label asp-for="Price">Price<sup>*</sup></label>
+                                    <input required asp-for="Price" class="form-control form-control-lg" />
+                                </div>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="col">
                                     <label asp-for="Picture">Picture</label>
                                     <input type="file" name="file" />
                                 </div>
@@ -41,13 +47,13 @@
                                     <label asp-for="Active">Active</label>
                                     <input type="checkbox" asp-for="Active" value="true" />
                                 </div>
-                                </div>
+                            </div>
                             <div class="form-row form-group">
                                 <div class="col">
                                     <button type="submit" class="btn btn-block btn-success btn-lg">Create</button>
                                 </div>
-                                </div>
-</form>
+                            </div>
+                        </form>
                         </div>
                     </div>
                 </div>

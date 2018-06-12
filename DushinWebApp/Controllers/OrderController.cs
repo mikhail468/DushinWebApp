@@ -49,6 +49,8 @@ namespace DushinWebApp.Controllers
                 Date = vm.Date
             };
             _orderService.Create(ord);
+            pac.TimesOrdered++;
+            _packageService.Update(pac);
             return RedirectToAction("Details", "Package", new { name = vm.Name });
         }
     }

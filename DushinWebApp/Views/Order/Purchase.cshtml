@@ -1,36 +1,38 @@
 ﻿@model  OrderPurchaseViewModel
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="display-4">Order details</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form asp-controller="Order" asp-action="Purchase" method="Post" class="bg-light">
 
-<div>
-    <h2>Order details</h2>
-</div>
-<form asp-controller="Order" asp-action="Purchase" method="Post">
+                    <div class="row my-2">
+                        <div class="col">
+                            <input asp-for="Name" value="@Model.Name" class="input-display bg-light" readonly />
+                        </div>
+                    </div>
 
-    <div asp-validation-summary="ModelOnly">
-
-    </div>
-
-    <div>
-        <h5 style="color:red">  @ViewBag.MyMessage </h5>
-    </div>
-
-    <div>
-       
-        <input asp-for="Name" value="@Model.Name" readonly/>
-    </div>
-
-    <div>
-       
-        <input asp-for="Name" value="@Model.Date" readonly/>
-    </div>
-
-    <div>
-        
-        <input asp-for="Price" value="$@Model.Price" readonly/>
-    </div>
-
-    <div>
-        <input type="submit" value="Order" />
-    </div>
-
+                    <div class="row my-2">
+                        <div class="col">
+                            <input asp-for="Date" value="@Model.Date" class="input-display bg-light" readonly />
+                        </div>
+                        </div>
+                    <div class="row my-2">
+                        <div class="col">
+                            <span style="font-size:1.5em;color:black">$</span><input asp-for="Price" value="@Model.Price" class="input-display bg-light" readonly />
+                        </div>
+                        </div>
+                    <div class="row my-2">
+                        <div class="col">
+                            <input class="btn bg-success text-white" type="submit" value="Order" />
+                        </div>
+                        </div>
 </form>
-
+            </div>
+        </div>
+        </div>
+    </section>
