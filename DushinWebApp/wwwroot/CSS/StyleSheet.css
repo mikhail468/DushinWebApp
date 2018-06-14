@@ -1,4 +1,6 @@
-﻿
+﻿.body-content {
+    min-height: calc(100vh - 440px);
+}
 .white-text{
     color:white;
 }

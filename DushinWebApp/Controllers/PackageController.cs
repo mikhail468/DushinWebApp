@@ -212,24 +212,14 @@ namespace DushinWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                Package package = _packageService.GetSingle(p=>p.Name==vm.Name);
+                Package package = _packageService.GetSingle(p=>p.PackageId==vm.PackageId);
                 package.Name = vm.Name;
                 package.LocName = vm.LocName;
                 package.Price = vm.Price;
                 package.Description = vm.Description;
                 package.LocState = vm.LocState;
                 package.Active = vm.Active;
-                    //Package pac = new Package
-                    //{
-                    //    LocationId = int.Parse(TempData["locId"].ToString()),
-                    //    Name = vm.Name,
-                    //    Price = vm.Price,
-                    //    Description = vm.Description,
-                    //    Active = vm.Active,
-                    //    Picture=vm.Picture
-                    //};
-                    //upload the picture to the file system
-                    //assign the picture URL to the cat object
+                   
                 if (file != null)
                     {
                         //check ??

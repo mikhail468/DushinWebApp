@@ -31,7 +31,7 @@ namespace DushinWebApp.Controllers
             OrderPurchaseViewModel vm = new OrderPurchaseViewModel
             {
                 Name = pac.Name,
-                Date = DateTime.Now,
+                Description = pac.Description,
                 Price = pac.Price
             };
             return View(vm);
@@ -46,7 +46,7 @@ namespace DushinWebApp.Controllers
                 UserId = user.Id,
                 Price = vm.Price,
                 Name = vm.Name,
-                Date = vm.Date
+                Date = DateTime.Now
             };
             _orderService.Create(ord);
             pac.TimesOrdered++;
