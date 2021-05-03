@@ -31,7 +31,7 @@ namespace DushinWebApp.Controllers
             OrderPurchaseViewModel vm = new OrderPurchaseViewModel
             {
                 Name = pac.Name,
-                Description = pac.Description,
+                Description=pac.Description,
                 Price = pac.Price
             };
             return View(vm);
@@ -49,8 +49,6 @@ namespace DushinWebApp.Controllers
                 Date = DateTime.Now
             };
             _orderService.Create(ord);
-            pac.TimesOrdered++;
-            _packageService.Update(pac);
             return RedirectToAction("Details", "Package", new { name = vm.Name });
         }
     }

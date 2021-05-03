@@ -1,25 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using DushinWebApp.Models;
 using DushinWebApp.Services;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Azure.Storage.Blobs;
+using Microsoft.EntityFrameworkCore;
 
 namespace DushinWebApp
 {
     public class Startup
     {
+        private readonly IConfiguration _config;
+
+        public Startup(IConfiguration config)
+        {
+            _config = config;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSwaggerDocument();
             services.AddScoped<IDataService<Location>, DataService<Location>>();
             services.AddScoped<IDataService<Package>, DataService<Package>>();
             services.AddScoped<IDataService<Profile>, DataService<Profile>>();
@@ -29,6 +34,9 @@ namespace DushinWebApp
             services.AddDistributedMemoryCache();
             services.AddSession();
 
+            services.AddSingleton(x => new BlobServiceClient(_config.GetValue<string>("AzureBlobStorageConnectionString")));
+            services.AddSingleton<IBlobService, BlobService>();
+
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
 
             {
@@ -37,9 +45,9 @@ namespace DushinWebApp
                 config.Password.RequireNonAlphanumeric = false;
             }
             ).AddEntityFrameworkStores<MyDbContext>();
-            services.AddDbContext<MyDbContext>();
+            services.AddDbContext<MyDbContext>(options => options.UseSqlServer(_config.GetConnectionString("AzureDushinTravelDb")));
             services.ConfigureApplicationCookie(options =>
-            { options.AccessDeniedPath = "/Account/Denied"; }
+                { options.AccessDeniedPath = "/Account/Denied"; }
             );
         }
 
@@ -59,8 +67,11 @@ namespace DushinWebApp
             app.UseSession();
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
+            app.UseSwagger();
+            app.UseSwaggerUi3();
 
-            
+            //call seed
+            // SeedHelper.Seed(app.ApplicationServices).Wait();
         }
     }
 }

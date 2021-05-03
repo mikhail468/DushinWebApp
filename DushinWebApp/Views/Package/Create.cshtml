@@ -32,8 +32,9 @@
                             </div>
                             <div class="form-row form-group">
                                 <div class="col">
-                                    <label asp-for="Price">Price<sup>*</sup></label>
+                                    <label asp-for="Price">Description<sup>*</sup></label>
                                     <input required asp-for="Price" class="form-control form-control-lg" />
+                                    <span class="text-red" asp-validation-for="Price"></span>
                                 </div>
                             </div>
                             <div class="form-row form-group">

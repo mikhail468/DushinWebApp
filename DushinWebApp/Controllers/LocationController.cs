@@ -20,7 +20,7 @@ namespace DushinWebApp.Controllers
         private IDataService<Location> _locationService;
         private IDataService<Package> _packageService;
         private IHostingEnvironment _environment;
-        public LocationController(UserManager<IdentityUser> managerService, IDataService<Location> locationService, 
+        public LocationController(UserManager<IdentityUser> managerService, IDataService<Location> locationService,
             IDataService<Package> packageService,
             IHostingEnvironment environment)
         {
@@ -63,7 +63,6 @@ namespace DushinWebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(string name,string sorting)
         {
-            
             IEnumerable<Package> list = _packageService.GetAll();
             Location loc = _locationService.GetSingle(l => l.Name == name);
             if (loc != null) {

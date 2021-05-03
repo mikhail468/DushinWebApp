@@ -13,7 +13,6 @@ namespace DushinWebApp.ViewModels
         [MaxLength(60, ErrorMessage = "Name length greater than 60")]
         public string LastName { get; set; }
         [MaxLength(60, ErrorMessage = "Email length greater than 60")]
-        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [MaxLength(20, ErrorMessage = "Mobile length greater than 20")]
         public string Mobile { get; set; }

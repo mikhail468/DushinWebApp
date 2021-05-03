@@ -22,7 +22,7 @@ namespace DushinWebApp.Controllers
         private IDataService<Package> _packageService;
         private IDataService<Feedback> _feedbackService;
         private IHostingEnvironment _environment;
-        public PackageController(UserManager<IdentityUser> managerService, IDataService<Location> locationService, 
+        public PackageController(UserManager<IdentityUser> managerService, IDataService<Location> locationService,
             IDataService<Package> packageService, IHostingEnvironment environment, IDataService<Feedback> feedbackService)
         {
             _locationService = locationService;
@@ -34,7 +34,7 @@ namespace DushinWebApp.Controllers
         public IActionResult AllPackages()
         {
             IEnumerable<Package> list = _packageService.GetAll().Where(p=>p.Active==true);
-           
+
             PackageHomeViewModel vm = new PackageHomeViewModel
             {
                 PackagesCarousel = new Package[3],
@@ -136,8 +136,7 @@ namespace DushinWebApp.Controllers
                         Description = vm.Description,
                         Active=vm.Active,
                         LocState = loc.State,
-                        UserId = user.Id,
-                        TimesOrdered = 0
+                        UserId = user.Id
 
                     };
                     //upload the picture to the file system
@@ -153,7 +152,7 @@ namespace DushinWebApp.Controllers
                         //get the file name
                         string fileName = FileNameHelper.GetNameFormated(Path.GetFileName(file.FileName));
 
-                        //stream the file to the srever
+                        //stream the file to the server
                         using (var fileStream = new FileStream(Path.Combine(serverPath, User.Identity.Name, fileName), FileMode.Create))
                         {
                             await file.CopyToAsync(fileStream);
@@ -184,9 +183,9 @@ namespace DushinWebApp.Controllers
         public async Task<IActionResult> Update(string name)
         {
             IdentityUser user = await _userManagerService.FindByNameAsync(User.Identity.Name);
-            
+
             Package pac = _packageService.GetSingle(p => p.Name == name);
-            if (pac.UserId == user.Id) { 
+            if (pac.UserId == user.Id) {
             PackageUpdateViewModel vm = new PackageUpdateViewModel
             {
                 PackageId=pac.PackageId,
@@ -219,7 +218,17 @@ namespace DushinWebApp.Controllers
                 package.Description = vm.Description;
                 package.LocState = vm.LocState;
                 package.Active = vm.Active;
-                   
+                    //Package pac = new Package
+                    //{
+                    //    LocationId = int.Parse(TempData["locId"].ToString()),
+                    //    Name = vm.Name,
+                    //    Price = vm.Price,
+                    //    Description = vm.Description,
+                    //    Active = vm.Active,
+                    //    Picture=vm.Picture
+                    //};
+                    //upload the picture to the file system
+                    //assign the picture URL to the cat object
                 if (file != null)
                     {
                         //check ??
@@ -245,7 +254,7 @@ namespace DushinWebApp.Controllers
 
                     //save to db
                     _packageService.Update(package);
-                
+
                 //go home
                 return RedirectToAction("Index", "Home");
             }

@@ -17,6 +17,5 @@ namespace DushinWebApp.Models
         public string Picture { get; set; }
         public bool Active { get; set; }
         public string UserId { get; set; }
-        public int TimesOrdered { get; set; }
     }
 }

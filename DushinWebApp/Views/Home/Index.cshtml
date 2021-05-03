@@ -3,7 +3,7 @@
 <link href="~/jquery-ui.css" rel="stylesheet" />
 <script src="~/jquery-ui.js"></script>
 <section class="bg-dark text-white space-xlg">
-    <img src="~/staticImages/nature.jpg" class="bg-image opacity-80">
+    <img src="https://dushintravelappstorage.blob.core.windows.net/travelappcontainer/staticImages/nature.jpg" class="bg-image opacity-80">
     <div class="container-fluid">
         <div class="row">
             <div class="col-10 col-md-12">
@@ -19,7 +19,7 @@
                             <i class="icon-magnifying-glass h4 text-body"></i>
                         </div>
                         <div class="col">
-                            <input asp-for="locationName" class="form-control form-control-borderless" id="searchInput" placeholder="Search destination" data-autocomplete-url="@Url.Action("GetAllLocations")" />
+                            <input asp-for="locationName" class="form-control form-control-borderless" id="searchInput" placeholder="Search destination"  data-autocomplete-url="@Url.Action("GetAllLocations")"/>
                         </div>
                         <script type="text/javascript">
                            $(document).ready(function () {
@@ -29,7 +29,7 @@
                            })
                         </script>
                         <div class="col-auto">
-                            <input class="btn btn-success" type="submit" value="Search" />
+                            <input class="btn btn-success" type="submit" value="Search"/>
                         </div>
                     </div>
                 </form>
@@ -55,153 +55,153 @@
             </div>
         </div>
     </div>
-    <div class="row w-100 mx-0">
-        @*<div class="col-md-12">*@
-        <div id="recipeCarousel" class="carousel slide w-100 col m-auto p-0" style="max-width:1150px;max-height:200px;overflow-x:hidden" data-ride="carousel">
+        <div class="row w-100 mx-0">
+            @*<div class="col-md-12">*@
+            <div id="recipeCarousel" class="carousel slide w-100 col m-auto p-0" style="max-width:1150px;max-height:200px;overflow-x:hidden" data-ride="carousel">
 
-            <div class="carousel-inner" style="width:1150px;height:200px" role="listbox">
-                <div class="carousel-item active">
-                    <div class="card border-0 bg-light mx-auto" style="width:275px;">
+                <div class="carousel-inner" style="width:1150px;height:200px" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="card border-0 bg-light mx-auto" style="width:275px;">
 
-                        @if (Model.Locations[0] != null)
-                        {
-                            <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[0].Name">
-                                <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[0].Picture">
-                                <div class="card-img-overlay text-center text-white">
-                                    <h2 class="card-title">@Model.Locations[0].Name</h2>
-                                </div>
-                            </a>
-                        }
-                        else
-                        {<a href="#">
-                                <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=1">
+                            @if (Model.Locations[0] != null)
+                            {
+                                <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[0].Name">
+                                    <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[0].Picture">
+                                    <div class="card-img-overlay text-center text-white">
+                                        <h2 class="card-title">@Model.Locations[0].Name</h2>
+                                    </div>
+                                </a>
+                            }
+                            else
+                            {<a href="#">
+                                    <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=1">
+                                    <div class="card-img-overlay">
+                                        <h2 class="card-title">Title</h2>
+                                    </div>
+                                </a>
+                            }
+
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card border-0 bg-light mx-auto" style="width:275px;">
+
+                            @if (Model.Locations[1] != null)
+                            {
+                                <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[1].Name">
+                                    <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[1].Picture">
+                                    <div class="card-img-overlay text-center text-white">
+                                        <h2 class="card-title">@Model.Locations[1].Name</h2>
+                                    </div>
+                                </a> }
+
+                            else
+                            {
+                                <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=2">
                                 <div class="card-img-overlay">
                                     <h2 class="card-title">Title</h2>
                                 </div>
-                            </a>
-                        }
-
+                            }
+                        </div>
                     </div>
+                    <div class="carousel-item">
+                        <div class="card border-0 bg-light mx-auto" style="width:275px;">
 
-                </div>
-                <div class="carousel-item">
-                    <div class="card border-0 bg-light mx-auto" style="width:275px;">
+                            @if (Model.Locations[2] != null)
+                            {
+                                <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[2].Name">
+                                    <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[2].Picture">
+                                    <div class="card-img-overlay text-center text-white">
+                                        <h2 class="card-title">@Model.Locations[2].Name</h2>
+                                    </div>
+                                </a>
+                            }
+                            else
+                            {
+                                <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=3">
 
-                        @if (Model.Locations[1] != null)
-                        {
-                            <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[1].Name">
-                                <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[1].Picture">
-                                <div class="card-img-overlay text-center text-white">
-                                    <h2 class="card-title">@Model.Locations[1].Name</h2>
-                                </div>
-                            </a> }
-
-                        else
-                        {
-                            <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=2">
-                            <div class="card-img-overlay">
-                                <h2 class="card-title">Title</h2>
-                            </div>
-                        }
+                                <div class="card-img-overlay">
+                                    <h2 class="card-title">Title</h2>
+                                </div>}
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card border-0 bg-light mx-auto" style="width:275px;">
+                    <div class="carousel-item">
+                        <div class="card border-0 bg-light mx-auto" style="width:275px;">
 
-                        @if (Model.Locations[2] != null)
-                        {
-                            <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[2].Name">
-                                <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[2].Picture">
-                                <div class="card-img-overlay text-center text-white">
-                                    <h2 class="card-title">@Model.Locations[2].Name</h2>
-                                </div>
-                            </a>
-                        }
-                        else
-                        {
-                            <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=3">
+                            @if (Model.Locations[3] != null)
+                            {
+                                <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[3].Name">
+                                    <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[3].Picture">
+                                    <div class="card-img-overlay text-center text-white">
+                                        <h2 class="card-title">@Model.Locations[3].Name</h2>
+                                    </div>
+                                </a>
+                            }
+                            else
+                            {
 
-                            <div class="card-img-overlay">
-                                <h2 class="card-title">Title</h2>
-                            </div>}
+                                <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=4">
+
+                                <div class="card-img-overlay">
+                                    <h2 class="card-title">Title</h2>
+                                </div>}
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card border-0 bg-light mx-auto" style="width:275px;">
+                    <div class="carousel-item">
+                        <div class="card border-0 bg-light mx-auto" style="width:275px;">
 
-                        @if (Model.Locations[3] != null)
-                        {
-                            <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[3].Name">
-                                <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[3].Picture">
-                                <div class="card-img-overlay text-center text-white">
-                                    <h2 class="card-title">@Model.Locations[3].Name</h2>
-                                </div>
-                            </a>
-                        }
-                        else
-                        {
+                            @if (Model.Locations[4] != null)
+                            {
+                                <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[4].Name">
+                                    <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[4].Picture">
+                                    <div class="card-img-overlay text-center text-white">
+                                        <h2 class="card-title">@Model.Locations[4].Name</h2>
+                                    </div>
+                                </a>
+                            }
+                            else
+                            {
+                                <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=5">
 
-                            <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=4">
-
-                            <div class="card-img-overlay">
-                                <h2 class="card-title">Title</h2>
-                            </div>}
+                                <div class="card-img-overlay">
+                                    <h2 class="card-title">Title</h2>
+                                </div>}
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card border-0 bg-light mx-auto" style="width:275px;">
+                    <div class="carousel-item">
+                        <div class="card border-0 bg-light mx-auto" style="width:275px;">
 
-                        @if (Model.Locations[4] != null)
-                        {
-                            <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[4].Name">
-                                <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[4].Picture">
-                                <div class="card-img-overlay text-center text-white">
-                                    <h2 class="card-title">@Model.Locations[4].Name</h2>
-                                </div>
-                            </a>
-                        }
-                        else
-                        {
-                            <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=5">
+                            @if (Model.Locations[5] != null)
+                            {
+                                <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[5].Name">
+                                    <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[5].Picture">
+                                    <div class="card-img-overlay text-center text-white">
+                                        <h2 class="card-title">@Model.Locations[5].Name</h2>
+                                    </div>
+                                </a>
+                            }
+                            else
+                            {
+                                <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=6">
 
-                            <div class="card-img-overlay">
-                                <h2 class="card-title">Title</h2>
-                            </div>}
+                                <div class="card-img-overlay">
+                                    <h2 class="card-title">Title</h2>
+                                </div>}
+                        </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="card border-0 bg-light mx-auto" style="width:275px;">
-
-                        @if (Model.Locations[5] != null)
-                        {
-                            <a asp-action="Details" asp-controller="Location" asp-route-name="@Model.Locations[5].Name">
-                                <img class="d-block p-0 w-100" style="max-width:300px;min-height:200px" src="~/uploads/@Model.Locations[5].Picture">
-                                <div class="card-img-overlay text-center text-white">
-                                    <h2 class="card-title">@Model.Locations[5].Name</h2>
-                                </div>
-                            </a>
-                        }
-                        else
-                        {
-                            <img class="d-block img-fluid p-0 w-100" style="max-width:350px;min-height:200px" src="http://placehold.it/350x180?text=6">
-
-                            <div class="card-img-overlay">
-                                <h2 class="card-title">Title</h2>
-                            </div>}
-                    </div>
-                </div>
+                <a class="carousel-control-prev" style="max-width:50px;" href="#recipeCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" style="max-width:50px;" href="#recipeCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <a class="carousel-control-prev bg-light" style="max-width:50px;" href="#recipeCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next bg-light" style="max-width:50px;" href="#recipeCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-    @*</div>*@
+            </div>
+        @*</div>*@
 
 </section>
 <section class="border-0">
@@ -213,185 +213,184 @@
             </div>
         </div>
     </div>
-    <div class="row w-100 mx-0">
-        <div id="recipeCarousel1" class="carousel slide w-100 col m-auto p-0" style="max-width:1150px;overflow-x:hidden" data-ride="carousel">
-            <div class="carousel-inner" style="width:1150px" role="listbox">
-                <div class="carousel-item m-auto active">
-                    <div class="card m-auto">
+        <div class="row w-100 mx-0">
+            <div id="recipeCarousel1" class="carousel slide w-100 col m-auto p-0" style="max-width:1150px;overflow-x:hidden" data-ride="carousel">
+                <div class="carousel-inner" style="width:1150px" role="listbox">
+                    <div class="carousel-item m-auto active">
+                        <div class="card m-auto">
 
-                        @if (Model.Packages[0] != null)
-                        {
+                            @if (Model.Packages[0] != null)
+            {
                             <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[0].Name">
                                 <img class="d-block w-100 p-0" style="max-width:320px;max-height:180px;" src="~/uploads/@Model.Packages[0].Picture">
-                            </a>
-                        }
-                        else
-                        {
-                            <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
-                        }
-                        <div class="card-body">
-                            <p class="card-title">@(Model.Packages[0] != null ? Model.Packages[0].Name : "Title")</p>
-                            <p class="card-text">$@(Model.Packages[0] != null ? Model.Packages[0].Price : 0)</p>
-                            @if (Model.Packages[0] != null)
-                            {
-                                <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[0].Name" class="btn btn-primary">More</a>
-                            }
-                            else
-                            {
-                                <a href="#" class="btn btn-primary">More</a>
-                            }
-                        </div>
+                                </a>
+                                }
+                                else
+                                {
+                                <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
+                                }
+                                <div class="card-body">
+                                    <p class="card-title">@(Model.Packages[0] != null ? Model.Packages[0].Name : "Title")</p>
+                                    <p class="card-text">$@(Model.Packages[0] != null ? Model.Packages[0].Price : 0)</p>
+                                    @if (Model.Packages[0] != null)
+                                    {
+                                        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[0].Name" class="btn btn-primary">More</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="btn btn-primary">More</a>
+                                    }
+                                </div>
+</div>
                     </div>
-                </div>
-                <div class="carousel-item m-auto">
-                    <div class="card m-auto">
+                    <div class="carousel-item m-auto">
+                        <div class="card m-auto">
 
-                        @if (Model.Packages[1] != null)
-                        {
+                            @if (Model.Packages[1] != null)
+        {
                             <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[1].Name">
                                 <img class="d-block w-100 p-0" style="max-width:320px;max-height:180px;" src="~/uploads/@Model.Packages[1].Picture">
-                            </a>
-                        }
-                        else
-                        {
-                            <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
-                        }
-                        <div class="card-body">
-                            <p class="card-title">@(Model.Packages[1] != null ? Model.Packages[1].Name : "Title")</p>
-                            <p class="card-text">$@(Model.Packages[1] != null ? Model.Packages[1].Price : 0)</p>
-                            @if (Model.Packages[1] != null)
-                            {
-                                <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[1].Name" class="btn btn-primary">More</a>
-                            }
-                            else
-                            {
-                                <a href="#" class="btn btn-primary">More</a>
-                            }
-                        </div>
+                                </a>
+                                }
+                                else
+                                {
+                                <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
+                                }
+                                <div class="card-body">
+                                    <p class="card-title">@(Model.Packages[1] != null ? Model.Packages[1].Name : "Title")</p>
+                                    <p class="card-text">$@(Model.Packages[1] != null ? Model.Packages[1].Price : 0)</p>
+                                    @if (Model.Packages[1] != null)
+                                    {
+                                        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[1].Name" class="btn btn-primary">More</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="btn btn-primary">More</a>
+                                    }
+                                </div>
+</div>
                     </div>
-                </div>
-                <div class="carousel-item m-auto">
-                    <div class="card m-auto">
+                    <div class="carousel-item m-auto">
+                        <div class="card m-auto">
 
-                        @if (Model.Packages[2] != null)
-                        {
+                            @if (Model.Packages[2] != null)
+        {
                             <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[2].Name">
                                 <img class="d-block w-100 p-0" style="max-width:320px;max-height:180px;" src="~/uploads/@Model.Packages[2].Picture">
-                            </a>
-                        }
-                        else
-                        {
-                            <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
-                        }
-                        <div class="card-body">
-                            <p class="card-title">@(Model.Packages[2] != null ? Model.Packages[2].Name : "Title")</p>
-                            <p class="card-text">$@(Model.Packages[2] != null ? Model.Packages[2].Price : 0)</p>
-                            @if (Model.Packages[2] != null)
-                            {
-                                <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[2].Name" class="btn btn-primary">More</a>
-                            }
-                            else
-                            {
-                                <a href="#" class="btn btn-primary">More</a>
-                            }
-                        </div>
+                                </a>
+                                }
+                                else
+                                {
+                                <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
+                                }
+                                <div class="card-body">
+                                    <p class="card-title">@(Model.Packages[2] != null ? Model.Packages[2].Name : "Title")</p>
+                                    <p class="card-text">$@(Model.Packages[2] != null ? Model.Packages[2].Price : 0)</p>
+                                    @if (Model.Packages[2] != null)
+                                    {
+                                        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[2].Name" class="btn btn-primary">More</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="btn btn-primary">More</a>
+                                    }
+                                </div>
+</div>
                     </div>
-                </div>
-                <div class="carousel-item m-auto">
-                    <div class="card m-auto">
+                    <div class="carousel-item m-auto">
+                        <div class="card m-auto">
 
-                        @if (Model.Packages[3] != null)
-                        {
-                            <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[3].Name">
-                                <img class="d-block w-100 p-0" style="max-width:320px;max-height:180px;" src="~/uploads/@Model.Packages[3].Picture">
-                            </a>
-                        }
-                        else
-                        {
-                            <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
-                        }
-                        <div class="card-body">
-                            <p class="card-title">@(Model.Packages[3] != null ? Model.Packages[3].Name : "Title")</p>
-                            <p class="card-text">$@(Model.Packages[3] != null ? Model.Packages[3].Price : 0)</p>
                             @if (Model.Packages[3] != null)
-                            {
-                                <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[3].Name" class="btn btn-primary">More</a>
+    {
+                        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[3].Name">
+                            <img class="d-block w-100 p-0" style="max-width:320px;max-height:180px;" src="~/uploads/@Model.Packages[3].Picture">
+                            </a>
                             }
                             else
                             {
-                                <a href="#" class="btn btn-primary">More</a>
+                            <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
                             }
+                            <div class="card-body">
+                                <p class="card-title">@(Model.Packages[3] != null ? Model.Packages[3].Name : "Title")</p>
+                                <p class="card-text">$@(Model.Packages[3] != null ? Model.Packages[3].Price : 0)</p>
+                                @if (Model.Packages[3] != null)
+                                {
+                                    <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[3].Name" class="btn btn-primary">More</a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="btn btn-primary">More</a>
+                                }
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item m-auto">
-                    <div class="card m-auto">
+                    <div class="carousel-item m-auto">
+                        <div class="card m-auto">
 
-                        @if (Model.Packages[4] != null)
-                        {
+                            @if (Model.Packages[4] != null)
+        {
                             <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[4].Name">
                                 <img class="d-block w-100 p-0" style="max-width:320px;max-height:180px;" src="~/uploads/@Model.Packages[4].Picture">
-                            </a>
-                        }
-                        else
-                        {
-                            <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
-                        }
-                        <div class="card-body">
-                            <p class="card-title">@(Model.Packages[4] != null ? Model.Packages[4].Name : "Title")</p>
-                            <p class="card-text">$@(Model.Packages[4] != null ? Model.Packages[4].Price : 0)</p>
-                            @if (Model.Packages[4] != null)
-                            {
-                                <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[4].Name" class="btn btn-primary">More</a>
-                            }
-                            else
-                            {
-                                <a href="#" class="btn btn-primary">More</a>
-                            }
-                        </div>
+                                </a>
+                                }
+                                else
+                                {
+                                <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
+                                }
+                                <div class="card-body">
+                                    <p class="card-title">@(Model.Packages[4] != null ? Model.Packages[4].Name : "Title")</p>
+                                    <p class="card-text">$@(Model.Packages[4] != null ? Model.Packages[4].Price : 0)</p>
+                                    @if (Model.Packages[4] != null)
+                                    {
+                                        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[4].Name" class="btn btn-primary">More</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="btn btn-primary">More</a>
+                                    }
+                                </div>
+</div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card m-auto">
+                    <div class="carousel-item">
+                        <div class="card m-auto">
 
-                        @if (Model.Packages[5] != null)
-                        {
-                            <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[5].Name">
-                                <img class="d-block w-100 p-0" style="max-width:320px;max-height:180px;" src="~/uploads/@Model.Packages[5].Picture">
-                            </a>
-                        }
-                        else
-                        {
-                            <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
-                        }
-                        <div class="card-body">
-                            <p class="card-title">@(Model.Packages[5] != null ? Model.Packages[5].Name : "Title")</p>
-                            <p class="card-text">$@(Model.Packages[5] != null ? Model.Packages[5].Price : 0)</p>
                             @if (Model.Packages[5] != null)
-                            {
-                                <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[5].Name" class="btn btn-primary">More</a>
+    {
+                        <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[5].Name">
+                            <img class="d-block w-100 p-0" style="max-width:320px;max-height:180px;" src="~/uploads/@Model.Packages[5].Picture">
+                            </a>
                             }
                             else
                             {
-                                <a href="#" class="btn btn-primary">More</a>
+                            <img class="d-block img-fluid p-0" style="max-width:320px;max-height:180px;" src="http://placehold.it/350x180?text=2">
                             }
+                            <div class="card-body">
+                                <p class="card-title">@(Model.Packages[5] != null ? Model.Packages[5].Name : "Title")</p>
+                                <p class="card-text">$@(Model.Packages[5] != null ? Model.Packages[5].Price : 0)</p>
+                                @if (Model.Packages[5] != null)
+                                {
+                                    <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.Packages[5].Name" class="btn btn-primary">More</a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="btn btn-primary">More</a>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
+                <a class="carousel-control-prev" style="max-width:50px;" href="#recipeCarousel1" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" style="max-width:50px;" href="#recipeCarousel1" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <a class="carousel-control-prev bg-light" style="max-width:50px;" href="#recipeCarousel1" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next bg-light" style="max-width:50px;" href="#recipeCarousel1" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
-    </div>
 
     <script src="~/Script/Carousel.js"></script>
 </section>
-
 
 

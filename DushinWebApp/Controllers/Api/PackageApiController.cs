@@ -20,6 +20,20 @@ namespace DushinWebApp.Controllers.Api
             _locationService = locationService;
             _packageService = packageService;
         }
+        [HttpGet("api/locations")]
+        public JsonResult GetLocations()
+        {
+            try
+            {
+                IEnumerable<Location> list = _locationService.GetAll();
+                return Json(list);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json(new { message = ex.Message });
+            }
+        }
         [HttpGet("api/allpackages")]
         public JsonResult GetAll()
         {
@@ -49,8 +63,10 @@ namespace DushinWebApp.Controllers.Api
             }
             else
             {
-                return Json(new { message = "cannot find this category" });
-            }
+                    IEnumerable<Package> list = _packageService.GetAll();
+                    return Json(list);
+                    //return Json(new { message = "cannot find this category" });
+                }
              }
             catch(Exception ex)
             {

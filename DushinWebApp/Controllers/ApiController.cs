@@ -21,6 +21,5 @@ namespace DushinWebApp.Controllers
             _locationService = locationService;
             _packageService = packageService;
         }
-        
     }
 }

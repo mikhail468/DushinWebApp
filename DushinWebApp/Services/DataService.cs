@@ -11,9 +11,9 @@ namespace DushinWebApp.Services
     {
         private MyDbContext _context;
         private DbSet<T> _dBSet;
-        public DataService()
+        public DataService(MyDbContext context)
         {
-            _context = new MyDbContext();
+            _context = context;
             _dBSet = _context.Set<T>();
         }
 

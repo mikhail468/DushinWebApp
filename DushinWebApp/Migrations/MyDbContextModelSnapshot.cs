@@ -99,8 +99,6 @@ namespace DushinWebApp.Migrations
 
                     b.Property<double>("Price");
 
-                    b.Property<int>("TimesOrdered");
-
                     b.Property<string>("UserId");
 
                     b.HasKey("PackageId");

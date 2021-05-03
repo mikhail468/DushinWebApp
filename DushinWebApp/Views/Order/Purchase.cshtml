@@ -1,38 +1,79 @@
-﻿@model  OrderPurchaseViewModel
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2 class="display-4">Order details</h2>
+﻿@model OrderPurchaseViewModel
+    <section class="body-content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="display-4">Order details</h2>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <form asp-controller="Order" asp-action="Purchase" method="Post" class="bg-light">
+            <div class="row">
+                <div class="col">
+                    <form asp-controller="Order" asp-action="Purchase" method="Post">
+                        <div asp-validation-summary="ModelOnly">
 
-                    <div class="row my-2">
-                        <div class="col">
-                            <input asp-for="Name" value="@Model.Name" class="input-display bg-light" readonly />
                         </div>
-                    </div>
+                        <div>
+                            <h5 style="color:red">  @ViewBag.MyMessage </h5>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col">
+                                <input asp-for="Name" value="@Model.Name" class="input-display bg-light" readonly type="text" id="Name" name="Name">
+                            </div>
+                        </div>
 
-                    <div class="row my-2">
-                        <div class="col">
-                            <input asp-for="Description" value="@Model.Description" class="input-display bg-light" readonly />
+                        <div class="row my-2">
+                            <div class="col">
+                                <input asp-for="Description" value="@Model.Description" class="input-display bg-light" readonly type="datetime-local" id="Date" name="Date">
+                            </div>
                         </div>
+                        <div class="row my-2">
+                            <div class="col">
+                                <span style="font-size:1.5em;color:black">$</span>
+                                <input asp-for="Price" value="@Model.Price" class="input-display bg-light" readonly type="text" id="Price" name="Price">
+                            </div>
                         </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <span style="font-size:1.5em;color:black">$</span><input asp-for="Price" value="@Model.Price" class="input-display bg-light" readonly />
+                        <div class="row my-2">
+                            <div class="col">
+                                <input class="btn bg-success text-white" type="submit" value="Order">
+                            </div>
                         </div>
-                        </div>
-                    <div class="row my-2">
-                        <div class="col">
-                            <input class="btn bg-success text-white" type="submit" value="Order" />
-                        </div>
-                        </div>
-</form>
+                      
+                    </form>
+                </div>
             </div>
-        </div>
         </div>
     </section>
+    @*<div>
+        <h2>Order details</h2>
+    </div>
+    <form asp-controller="Order" asp-action="Purchase" method="Post">
+
+        <div asp-validation-summary="ModelOnly">
+
+        </div>
+
+        <div>
+            <h5 style="color:red">  @ViewBag.MyMessage </h5>
+        </div>
+
+        <div>
+
+            <input asp-for="Name" value="@Model.Name" readonly />
+        </div>
+
+        <div>
+
+            <input asp-for="Date" value="@Model.Date" readonly />
+        </div>
+
+        <div>
+            <span>$</span>
+            <input asp-for="Price" value="@Model.Price" readonly />
+        </div>
+
+        <div>
+            <input type="submit" value="Order" />
+        </div>
+
+    </form>*@
+
