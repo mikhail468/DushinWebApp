@@ -45,7 +45,9 @@ namespace DushinWebApp
                 config.Password.RequireNonAlphanumeric = false;
             }
             ).AddEntityFrameworkStores<MyDbContext>();
-            services.AddDbContext<MyDbContext>(options => options.UseSqlServer(_config.GetConnectionString("AzureDushinTravelDb")));
+            services.AddDbContext<MyDbContext>(options => {
+                options.UseSqlServer(_config["TravelDBConString"]);
+            });
             services.ConfigureApplicationCookie(options =>
                 { options.AccessDeniedPath = "/Account/Denied"; }
             );
@@ -67,7 +69,6 @@ namespace DushinWebApp
             app.UseSession();
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
-            app.UseSwagger();
             app.UseSwaggerUi3();
 
             //call seed

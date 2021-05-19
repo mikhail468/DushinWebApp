@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using DushinWebApp.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace DushinWebApp.Services
 {
