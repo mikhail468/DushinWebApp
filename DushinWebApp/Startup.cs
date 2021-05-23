@@ -46,7 +46,14 @@ namespace DushinWebApp
             }
             ).AddEntityFrameworkStores<MyDbContext>();
             services.AddDbContext<MyDbContext>(options => {
-                options.UseSqlServer(_config["TravelDBConString"]);
+                if (_config["TravelDBConString"] != null)
+                {
+                    options.UseSqlServer(_config["TravelDBConString"]);
+                }
+                else
+                {
+                    options.UseSqlServer(_config.GetConnectionString("AzureDushinTravelDb"));
+                }
             });
             services.ConfigureApplicationCookie(options =>
                 { options.AccessDeniedPath = "/Account/Denied"; }

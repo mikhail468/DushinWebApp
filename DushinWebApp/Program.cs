@@ -19,19 +19,18 @@ namespace DushinWebApp
             WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((context, config) =>
             {
-                IConfigurationRoot builtConfig = config.Build();
-                string kvURL = builtConfig["KeyVaultConfig:kvURL"];
-                string tenantId = builtConfig["KeyVaultConfig:tenantId"];
-                string clientId = builtConfig["KeyVaultConfig:clientId"];
-                string clientSecret = builtConfig["KeyVaultConfig:clientSecret"];
+                if (context.HostingEnvironment.IsProduction())
+                {
+                    IConfigurationRoot builtConfig = config.Build();
+                    string kvName = "dushintravelkeyvault";
 
-                var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
-
-                var secretClient = new SecretClient(
-                            new Uri(kvURL), credential);
-                        config.AddAzureKeyVault(secretClient, new AzureKeyVaultConfigurationOptions());
+                    var secretClient = new SecretClient(
+                        new Uri($"https://{kvName}.vault.azure.net/"),
+                        new DefaultAzureCredential());
+                    config.AddAzureKeyVault(secretClient, new AzureKeyVaultConfigurationOptions());
+                }
             })
-                .UseStartup<Startup>()
-                .Build();
+            .UseStartup<Startup>()
+            .Build();
     }
 }
