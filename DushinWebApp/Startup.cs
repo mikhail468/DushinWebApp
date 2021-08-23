@@ -31,11 +31,20 @@ namespace DushinWebApp
             services.AddScoped<IDataService<Order>, DataService<Order>>();
             services.AddScoped<IDataService<ProviderProfile>, DataService<ProviderProfile>>();
             services.AddScoped<IDataService<Feedback>, DataService<Feedback>>();
+            services.AddScoped<IBlobService, BlobService>();
             services.AddDistributedMemoryCache();
             services.AddSession();
 
-            services.AddSingleton(x => new BlobServiceClient(_config.GetValue<string>("AzureBlobStorageConnectionString")));
-            services.AddSingleton<IBlobService, BlobService>();
+            services.AddSingleton(x => {
+                if (_config["TravelStorageConString"] != null)
+                {
+                    return new BlobServiceClient(_config["TravelStorageConString"]);
+                }
+                else
+                {
+                    return new BlobServiceClient(_config.GetConnectionString("AzureBlobStorageConnectionString"));
+                }
+            });
 
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
 

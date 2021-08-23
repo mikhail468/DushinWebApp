@@ -20,7 +20,7 @@
                         </div>
                                 <div class="col-md-8">
                                     <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackagesCarousel[0].Name">
-                                        <img class="img-fluid" src="~/uploads/@Model.PackagesCarousel[0].Picture" style="max-width:750px;max-height:450px" alt="slide 1">
+                                        <img class="img-fluid" src="https://dushintravelappstorage.blob.core.windows.net/travelappcontainer/uploads/@Model.PackagesCarousel[0].Picture" style="max-width:750px;max-height:450px" alt="slide 1">
                                         </a>
                                 </div>
                                 }
@@ -59,7 +59,7 @@
                                 </div>
                                     <div class="col-md-8">
                                         <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackagesCarousel[1].Name">
-                                            <img src="~/uploads/@Model.PackagesCarousel[1].Picture" style="max-width:750px;max-height:450px" alt="slide 2">
+                                            <img src="https://dushintravelappstorage.blob.core.windows.net/travelappcontainer/uploads/@Model.PackagesCarousel[1].Picture" style="max-width:750px;max-height:450px" alt="slide 2">
                                         </a>
                                     </div>
                                     }
@@ -98,7 +98,7 @@
                             </div>
                                 <div class="col-md-8">
                                     <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackagesCarousel[2].Name">
-                                        <img src="~/uploads/@Model.PackagesCarousel[2].Picture" style="max-width:750px;max-height:450px" alt="slide 3">
+                                        <img src="https://dushintravelappstorage.blob.core.windows.net/travelappcontainer/uploads/@Model.PackagesCarousel[2].Picture" style="max-width:750px;max-height:450px" alt="slide 3">
                                     </a>
                                 </div>
                                 }
@@ -146,7 +146,7 @@
                 @if (Model.PackageNSW[i] != null)
     {
             <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackageNSW[i].Name" class="card">
-                <img class="d-block w-100 p-0" src="~/uploads/@Model.PackageNSW[i].Picture">
+                <img class="d-block w-100 p-0" src="https://dushintravelappstorage.blob.core.windows.net/travelappcontainer/uploads/@Model.PackageNSW[i].Picture">
                 <div class="card-body">
                     <p class="card-title">@Model.PackageNSW[i].Name</p>
                     <p class="card-text">$@Model.PackageNSW[i].Price</p>
@@ -193,7 +193,7 @@ else
     @if (Model.PackageInt[i] != null)
     {
         <a asp-action="Details" asp-controller="Package" asp-route-name="@Model.PackageInt[i].Name" class="card">
-            <img class="d-block w-100 p-0" src="~/uploads/@Model.PackageInt[i].Picture">
+            <img class="d-block w-100 p-0" src="https://dushintravelappstorage.blob.core.windows.net/travelappcontainer/uploads/@Model.PackageInt[i].Picture">
             <div class="card-body">
                 <p class="card-title">@Model.PackageInt[i].Name</p>
                 <p class="card-text">$@Model.PackageInt[i].Price</p>

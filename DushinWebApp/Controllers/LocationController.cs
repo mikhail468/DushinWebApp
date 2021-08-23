@@ -16,22 +16,24 @@ namespace DushinWebApp.Controllers
 {
     public class LocationController : Controller
     {
-        private UserManager<IdentityUser> _userManagerService;
-        private IDataService<Location> _locationService;
-        private IDataService<Package> _packageService;
-        private IHostingEnvironment _environment;
+        private readonly UserManager<IdentityUser> _userManagerService;
+        private readonly IDataService<Location> _locationService;
+        private readonly IDataService<Package> _packageService;
+        private readonly IHostingEnvironment _environment;
+        private readonly IBlobService _blobService;
         public LocationController(UserManager<IdentityUser> managerService, IDataService<Location> locationService,
-            IDataService<Package> packageService,
+            IDataService<Package> packageService, IBlobService blobService,
             IHostingEnvironment environment)
         {
             _userManagerService = managerService;
             _locationService = locationService;
             _packageService = packageService;
             _environment = environment;
+            _blobService = blobService;
         }
         public IActionResult Home()
         {
-            IEnumerable<Location> list = _locationService.GetAll().Where(l => l.Active == true);
+            IEnumerable<Location> list = _locationService.GetAll().Where(l => l.Active);
             LocationHomeViewModel vm = new LocationHomeViewModel
             {
                 locations=list,
@@ -70,9 +72,9 @@ namespace DushinWebApp.Controllers
                 List<Package> packageList;
                 switch (sorting)
                 {
-                    case "hight": packageList = list.Where(p => p.LocationId == loc.LocationId).Where(p => p.Active == true).OrderByDescending(x=>x.Price).ToList();break;
-                    case "low": packageList= list.Where(p => p.LocationId == loc.LocationId).Where(p => p.Active == true).OrderBy(x => x.Price).ToList(); break;
-                    default : packageList = list.Where(p => p.LocationId == loc.LocationId).Where(p => p.Active == true).ToList();break;
+                    case "hight": packageList = list.Where(p => p.LocationId == loc.LocationId).Where(p => p.Active).OrderByDescending(x=>x.Price).ToList();break;
+                    case "low": packageList= list.Where(p => p.LocationId == loc.LocationId).Where(p => p.Active).OrderBy(x => x.Price).ToList(); break;
+                    default : packageList = list.Where(p => p.LocationId == loc.LocationId).Where(p => p.Active).ToList();break;
                 }
                 LocationDetailsViewModel vm = new LocationDetailsViewModel
                 {
@@ -86,8 +88,8 @@ namespace DushinWebApp.Controllers
                 if(User.Identity.IsAuthenticated && User.IsInRole("Provider"))
                 {
                     IdentityUser user = await _userManagerService.FindByNameAsync(User.Identity.Name);
-                    vm.UnactivePackages = list.Where(p => p.LocationId == loc.LocationId).Where(p => p.UserId == user.Id).Where(p => p.Active == false);
-                    vm.TotalUnactivePac = list.Where(p => p.LocationId == loc.LocationId).Where(p => p.UserId == user.Id).Where(p => p.Active == false).Count();
+                    vm.UnactivePackages = list.Where(p => p.LocationId == loc.LocationId).Where(p => p.UserId == user.Id).Where(p => !p.Active);
+                    vm.TotalUnactivePac = list.Where(p => p.LocationId == loc.LocationId).Where(p => p.UserId == user.Id).Count(p => !p.Active);
                 }
                 return View(vm);
             }
@@ -96,20 +98,20 @@ namespace DushinWebApp.Controllers
                 List<Package> packageList;
                 switch (sorting)
                 {
-                    case "hight": packageList = _packageService.GetAll().Where(p => p.Active == true).OrderByDescending(x => x.Price).ToList(); break;
-                    case "low": packageList = _packageService.GetAll().Where(p => p.Active == true).OrderBy(x => x.Price).ToList(); break;
-                    default: packageList = _packageService.GetAll().Where(p => p.Active == true).ToList(); break;
+                    case "hight": packageList = _packageService.GetAll().Where(p => p.Active).OrderByDescending(x => x.Price).ToList(); break;
+                    case "low": packageList = _packageService.GetAll().Where(p => p.Active).OrderBy(x => x.Price).ToList(); break;
+                    default: packageList = _packageService.GetAll().Where(p => p.Active).ToList(); break;
                 }
                 LocationDetailsViewModel vm = new LocationDetailsViewModel
                 {
-                    TotalPackages = packageList.Count(),
+                    TotalPackages = packageList.Count,
                     Packages = packageList
                 };
                 if (User.Identity.IsAuthenticated && User.IsInRole("Provider"))
                 {
                     IdentityUser user = await _userManagerService.FindByNameAsync(User.Identity.Name);
-                    vm.UnactivePackages = list.Where(p => p.UserId == user.Id).Where(p => p.Active == false);
-                    vm.TotalUnactivePac = list.Where(p => p.UserId == user.Id).Where(p => p.Active == false).Count();
+                    vm.UnactivePackages = list.Where(p => p.UserId == user.Id).Where(p => !p.Active);
+                    vm.TotalUnactivePac = list.Where(p => p.UserId == user.Id).Count(p => !p.Active);
                 }
                 return View(vm);
             }
@@ -148,20 +150,10 @@ namespace DushinWebApp.Controllers
                     //assign the picture URL to the cat object
                     if (file != null)
                     {
-                        //check ??
-
-                        //upload server path
-                        var serverPath = Path.Combine(_environment.WebRootPath, "uploads");
-                        //create a folder
-                        Directory.CreateDirectory(Path.Combine(serverPath, User.Identity.Name));
                         //get the file name
                         string fileName = FileNameHelper.GetNameFormated(Path.GetFileName(file.FileName));
+                        await _blobService.UploadFileBlobAsync(file, Path.Combine("uploads", User.Identity.Name, fileName));
 
-                        //stream the file to the srever
-                        using (var fileStream = new FileStream(Path.Combine(serverPath, User.Identity.Name, fileName), FileMode.Create))
-                        {
-                            await file.CopyToAsync(fileStream);
-                        }
                         //assign the picture URL to the cat object
                         loc.Picture = User.Identity.Name + "/" + fileName;
                     }
